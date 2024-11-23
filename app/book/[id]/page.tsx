@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Editor, useDomValue } from 'reactjs-editor';
-import styles from './book.module.css';
 
 export default function BookPage() {
   const { id } = useParams();
@@ -56,23 +55,31 @@ export default function BookPage() {
         animate={{ opacity: 1, y: 0 }}
         className="flex w-[90%] mx-auto justify-between items-center min-h-[5vh] mt-2 mb-2"
       >
-        <div className={styles.leftIcons}>
+        {/* <div className={styles.leftIcons}> */}
+        <div className="">
           <i
             style={{ fontSize: '20px', cursor: 'pointer' }}
             className="fas fa-chevron-left"
           ></i>
         </div>
-        <div className={styles.title}>
+        <div className="pl-10">
           {' '}
-          <h2 className={styles.titleStyles}> {selectedBook[0].title}</h2>
+          <h2 className="text-center uppercase pl-[100px]">
+            {' '}
+            {selectedBook[0].title}
+          </h2>
         </div>
-        <div className={styles.icons}>
-          <button className={styles.saveButton} onClick={handleSave}>
+        <div className="">
+          {/* <div className={styles.icons}> */}
+          <button
+            className="px-8 py-2 bg-transparent rounded-[30px] border border-black mr-5 cursor-pointer"
+            onClick={handleSave}
+          >
             Save
           </button>
-          <i style={iconStyle} className="fas fa-cog"></i>
-          <i style={iconStyle} className="fas fa-share"></i>
-          <i style={iconStyle} className="fas fa-search"></i>
+          <i className="fas fa-cog mr-5 text-[20px]"></i>
+          <i className="fas fa-share mr-5 text-[20px]"></i>
+          <i className="fas fa-search mr-5 text-[20px]"></i>
         </div>
       </motion.section>
 
@@ -92,5 +99,3 @@ export default function BookPage() {
     </motion.div>
   );
 }
-
-const iconStyle = { marginRight: '20px', fontSize: '20px' };
